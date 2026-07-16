@@ -550,10 +550,10 @@ function FinalCta() {
 
         <div className="mt-10 flex flex-col items-center gap-4">
           <div className="flex items-baseline gap-3">
-            <span className="text-muted-foreground line-through text-lg">79€</span>
-            <span className="font-display text-5xl font-semibold">49€</span>
+            <span className="text-muted-foreground line-through text-lg">50€</span>
+            <span className="font-display text-5xl font-semibold">25€</span>
             <span className="rounded-full bg-accent/15 text-accent text-xs font-medium px-2.5 py-1">
-              -38%
+              -50%
             </span>
           </div>
           <a
