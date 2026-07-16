@@ -284,22 +284,23 @@ function Features() {
   return (
     <section id="features" className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionEyebrow>Características</SectionEyebrow>
-        <h2 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl text-gradient">
-          Ingeniería en cada detalle.
-        </h2>
+        <Reveal>
+          <SectionEyebrow>Características</SectionEyebrow>
+          <h2 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl text-gradient">
+            Ingeniería en cada detalle.
+          </h2>
+        </Reveal>
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {feats.map((f) => (
-            <article
-              key={f.title}
-              className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-b from-surface to-background p-7 hover:border-accent/40 transition"
-            >
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-foreground/5 text-accent">
-                <f.icon className="h-5 w-5" strokeWidth={1.75} />
-              </div>
-              <h3 className="mt-6 text-lg font-medium">{f.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-            </article>
+          {feats.map((f, i) => (
+            <Reveal key={f.title} delay={(i % 3) * 100}>
+              <article className="relative h-full overflow-hidden rounded-3xl border border-border bg-gradient-to-b from-surface to-background p-7 hover:border-accent/40 transition">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-foreground/5 text-accent">
+                  <f.icon className="h-5 w-5" strokeWidth={1.75} />
+                </div>
+                <h3 className="mt-6 text-lg font-medium">{f.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>
