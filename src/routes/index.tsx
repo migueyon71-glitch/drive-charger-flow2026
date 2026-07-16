@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero-charger.jpg";
 import detailImg from "@/assets/product-detail.jpg";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -185,22 +186,23 @@ function Benefits() {
   return (
     <section className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionEyebrow>Beneficios</SectionEyebrow>
-        <h2 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl text-gradient">
-          Pensado para hacer cada trayecto mejor.
-        </h2>
+        <Reveal>
+          <SectionEyebrow>Beneficios</SectionEyebrow>
+          <h2 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl text-gradient">
+            Pensado para hacer cada trayecto mejor.
+          </h2>
+        </Reveal>
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {items.map((it) => (
-            <div
-              key={it.title}
-              className="group rounded-3xl bg-surface/60 border border-border p-6 hover:bg-surface transition"
-            >
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition">
-                <it.icon className="h-6 w-6" strokeWidth={1.75} />
+          {items.map((it, i) => (
+            <Reveal key={it.title} delay={i * 90}>
+              <div className="group h-full rounded-3xl bg-surface/60 border border-border p-6 hover:bg-surface transition">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition">
+                  <it.icon className="h-6 w-6" strokeWidth={1.75} />
+                </div>
+                <h3 className="mt-5 text-lg font-medium">{it.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
               </div>
-              <h3 className="mt-5 text-lg font-medium">{it.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -282,22 +284,23 @@ function Features() {
   return (
     <section id="features" className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionEyebrow>Características</SectionEyebrow>
-        <h2 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl text-gradient">
-          Ingeniería en cada detalle.
-        </h2>
+        <Reveal>
+          <SectionEyebrow>Características</SectionEyebrow>
+          <h2 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl text-gradient">
+            Ingeniería en cada detalle.
+          </h2>
+        </Reveal>
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {feats.map((f) => (
-            <article
-              key={f.title}
-              className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-b from-surface to-background p-7 hover:border-accent/40 transition"
-            >
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-foreground/5 text-accent">
-                <f.icon className="h-5 w-5" strokeWidth={1.75} />
-              </div>
-              <h3 className="mt-6 text-lg font-medium">{f.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-            </article>
+          {feats.map((f, i) => (
+            <Reveal key={f.title} delay={(i % 3) * 100}>
+              <article className="relative h-full overflow-hidden rounded-3xl border border-border bg-gradient-to-b from-surface to-background p-7 hover:border-accent/40 transition">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-foreground/5 text-accent">
+                  <f.icon className="h-5 w-5" strokeWidth={1.75} />
+                </div>
+                <h3 className="mt-6 text-lg font-medium">{f.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -316,21 +319,25 @@ function HowItWorks() {
   return (
     <section id="how" className="py-24 md:py-32 bg-surface/40">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionEyebrow>Cómo funciona</SectionEyebrow>
-        <h2 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl">
-          Cuatro segundos. <span className="text-muted-foreground">Cero esfuerzo.</span>
-        </h2>
+        <Reveal>
+          <SectionEyebrow>Cómo funciona</SectionEyebrow>
+          <h2 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl">
+            Cuatro segundos. <span className="text-muted-foreground">Cero esfuerzo.</span>
+          </h2>
+        </Reveal>
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {steps.map((s, i) => (
-            <div key={s.n} className="relative rounded-3xl border border-border bg-background/40 p-7">
-              <div className="font-display text-6xl text-accent/80 leading-none">{s.n}</div>
-              <h3 className="mt-6 text-lg font-medium">{s.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
-              {i < steps.length - 1 && (
-                <ArrowRight className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-border" />
-              )}
-            </div>
+            <Reveal key={s.n} delay={i * 120}>
+              <div className="relative h-full rounded-3xl border border-border bg-background/40 p-7">
+                <div className="font-display text-6xl text-accent/80 leading-none">{s.n}</div>
+                <h3 className="mt-6 text-lg font-medium">{s.t}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+                {i < steps.length - 1 && (
+                  <ArrowRight className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-border" />
+                )}
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -536,37 +543,53 @@ function FinalCta() {
       </div>
 
       <div className="mx-auto max-w-4xl px-6 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 text-xs text-accent font-medium">
-          <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-          Oferta lanzamiento · Stock limitado
-        </div>
-
-        <h2 className="mt-6 text-5xl md:text-7xl font-semibold tracking-tighter text-gradient">
-          Actualiza tu coche hoy.
-        </h2>
-        <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">
-          Únete a más de 20.000 conductores que ya no vuelven atrás. Envío gratis y 30 días de prueba.
-        </p>
-
-        <div className="mt-10 flex flex-col items-center gap-4">
-          <div className="flex items-baseline gap-3">
-            <span className="text-muted-foreground line-through text-lg">50€</span>
-            <span className="font-display text-5xl font-semibold">25€</span>
-            <span className="rounded-full bg-accent/15 text-accent text-xs font-medium px-2.5 py-1">
-              -50%
-            </span>
+        <Reveal>
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 text-xs text-accent font-medium">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+            Oferta lanzamiento · Stock limitado
           </div>
-          <a
-            href="#"
-            className="group inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground font-medium text-lg px-10 py-5 accent-glow hover:brightness-110 transition animate-pulse-ring"
-          >
-            Comprar ahora
-            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition" />
-          </a>
-          <div className="text-xs text-muted-foreground">
-            Pago seguro · Envío 48h · Devolución gratuita
+
+          <h2 className="mt-6 text-5xl md:text-7xl font-semibold tracking-tighter text-gradient">
+            Actualiza tu coche hoy.
+          </h2>
+          <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">
+            Únete a más de 20.000 conductores que ya no vuelven atrás. Envío gratis y 30 días de prueba.
+          </p>
+        </Reveal>
+
+        <Reveal delay={150}>
+          <div className="mt-10 flex flex-col items-center gap-4">
+            <div className="flex items-baseline gap-3">
+              <span className="text-muted-foreground line-through text-lg">50€</span>
+              <span className="font-display text-5xl font-semibold">25€</span>
+              <span className="rounded-full bg-accent/15 text-accent text-xs font-medium px-2.5 py-1">
+                -50%
+              </span>
+            </div>
+            <a
+              href="#"
+              className="group inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground font-medium text-lg px-10 py-5 accent-glow hover:brightness-110 transition animate-pulse-ring"
+            >
+              Comprar ahora
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition" />
+            </a>
+            <div className="text-xs text-muted-foreground">
+              Pago seguro · Envío 48h · Devolución gratuita
+            </div>
+
+            {/* Métodos de pago */}
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+              {["Visa", "Mastercard", "Amex", "PayPal", "Apple Pay", "Google Pay"].map((m) => (
+                <span
+                  key={m}
+                  className="rounded-lg border border-border bg-surface/60 px-3 py-1.5 text-[11px] font-medium tracking-wide text-muted-foreground"
+                >
+                  {m}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
