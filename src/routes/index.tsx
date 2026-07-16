@@ -543,37 +543,53 @@ function FinalCta() {
       </div>
 
       <div className="mx-auto max-w-4xl px-6 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 text-xs text-accent font-medium">
-          <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-          Oferta lanzamiento · Stock limitado
-        </div>
-
-        <h2 className="mt-6 text-5xl md:text-7xl font-semibold tracking-tighter text-gradient">
-          Actualiza tu coche hoy.
-        </h2>
-        <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">
-          Únete a más de 20.000 conductores que ya no vuelven atrás. Envío gratis y 30 días de prueba.
-        </p>
-
-        <div className="mt-10 flex flex-col items-center gap-4">
-          <div className="flex items-baseline gap-3">
-            <span className="text-muted-foreground line-through text-lg">50€</span>
-            <span className="font-display text-5xl font-semibold">25€</span>
-            <span className="rounded-full bg-accent/15 text-accent text-xs font-medium px-2.5 py-1">
-              -50%
-            </span>
+        <Reveal>
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 text-xs text-accent font-medium">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+            Oferta lanzamiento · Stock limitado
           </div>
-          <a
-            href="#"
-            className="group inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground font-medium text-lg px-10 py-5 accent-glow hover:brightness-110 transition animate-pulse-ring"
-          >
-            Comprar ahora
-            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition" />
-          </a>
-          <div className="text-xs text-muted-foreground">
-            Pago seguro · Envío 48h · Devolución gratuita
+
+          <h2 className="mt-6 text-5xl md:text-7xl font-semibold tracking-tighter text-gradient">
+            Actualiza tu coche hoy.
+          </h2>
+          <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">
+            Únete a más de 20.000 conductores que ya no vuelven atrás. Envío gratis y 30 días de prueba.
+          </p>
+        </Reveal>
+
+        <Reveal delay={150}>
+          <div className="mt-10 flex flex-col items-center gap-4">
+            <div className="flex items-baseline gap-3">
+              <span className="text-muted-foreground line-through text-lg">50€</span>
+              <span className="font-display text-5xl font-semibold">25€</span>
+              <span className="rounded-full bg-accent/15 text-accent text-xs font-medium px-2.5 py-1">
+                -50%
+              </span>
+            </div>
+            <a
+              href="#"
+              className="group inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground font-medium text-lg px-10 py-5 accent-glow hover:brightness-110 transition animate-pulse-ring"
+            >
+              Comprar ahora
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition" />
+            </a>
+            <div className="text-xs text-muted-foreground">
+              Pago seguro · Envío 48h · Devolución gratuita
+            </div>
+
+            {/* Métodos de pago */}
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+              {["Visa", "Mastercard", "Amex", "PayPal", "Apple Pay", "Google Pay"].map((m) => (
+                <span
+                  key={m}
+                  className="rounded-lg border border-border bg-surface/60 px-3 py-1.5 text-[11px] font-medium tracking-wide text-muted-foreground"
+                >
+                  {m}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
