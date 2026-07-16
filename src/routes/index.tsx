@@ -319,21 +319,25 @@ function HowItWorks() {
   return (
     <section id="how" className="py-24 md:py-32 bg-surface/40">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionEyebrow>Cómo funciona</SectionEyebrow>
-        <h2 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl">
-          Cuatro segundos. <span className="text-muted-foreground">Cero esfuerzo.</span>
-        </h2>
+        <Reveal>
+          <SectionEyebrow>Cómo funciona</SectionEyebrow>
+          <h2 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl">
+            Cuatro segundos. <span className="text-muted-foreground">Cero esfuerzo.</span>
+          </h2>
+        </Reveal>
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {steps.map((s, i) => (
-            <div key={s.n} className="relative rounded-3xl border border-border bg-background/40 p-7">
-              <div className="font-display text-6xl text-accent/80 leading-none">{s.n}</div>
-              <h3 className="mt-6 text-lg font-medium">{s.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
-              {i < steps.length - 1 && (
-                <ArrowRight className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-border" />
-              )}
-            </div>
+            <Reveal key={s.n} delay={i * 120}>
+              <div className="relative h-full rounded-3xl border border-border bg-background/40 p-7">
+                <div className="font-display text-6xl text-accent/80 leading-none">{s.n}</div>
+                <h3 className="mt-6 text-lg font-medium">{s.t}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+                {i < steps.length - 1 && (
+                  <ArrowRight className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-border" />
+                )}
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>
