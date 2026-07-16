@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero-charger.jpg";
 import detailImg from "@/assets/product-detail.jpg";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
