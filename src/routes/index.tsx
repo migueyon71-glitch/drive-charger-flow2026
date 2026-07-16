@@ -186,22 +186,23 @@ function Benefits() {
   return (
     <section className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionEyebrow>Beneficios</SectionEyebrow>
-        <h2 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl text-gradient">
-          Pensado para hacer cada trayecto mejor.
-        </h2>
+        <Reveal>
+          <SectionEyebrow>Beneficios</SectionEyebrow>
+          <h2 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl text-gradient">
+            Pensado para hacer cada trayecto mejor.
+          </h2>
+        </Reveal>
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {items.map((it) => (
-            <div
-              key={it.title}
-              className="group rounded-3xl bg-surface/60 border border-border p-6 hover:bg-surface transition"
-            >
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition">
-                <it.icon className="h-6 w-6" strokeWidth={1.75} />
+          {items.map((it, i) => (
+            <Reveal key={it.title} delay={i * 90}>
+              <div className="group h-full rounded-3xl bg-surface/60 border border-border p-6 hover:bg-surface transition">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition">
+                  <it.icon className="h-6 w-6" strokeWidth={1.75} />
+                </div>
+                <h3 className="mt-5 text-lg font-medium">{it.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
               </div>
-              <h3 className="mt-5 text-lg font-medium">{it.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
