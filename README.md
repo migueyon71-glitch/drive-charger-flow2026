@@ -1,0 +1,2 @@
+Este proyecto es una pagina web sobre un soporte para cargar el movil desde el coche mientras vas conduciendo, es decir, menos peligro al volante debido a que ahorra cables y no tienes que apartar la mirada de la carretera en ningun momento.
+This project is a website that showcases a car phone holder with a built-in charging system. It allows users to charge their phones while driving, making the experience safer by eliminating unnecessary cables and helping drivers keep their eyes on the road at all times.
