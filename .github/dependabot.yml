@@ -1,0 +1,11 @@
+## Dependabot
+
+Configuración para que Dependabot busque actualizaciones de dependencias semanalmente.
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
